@@ -17,6 +17,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.14.0",
     "bcrypt": "^5.0.1",
     "class-transformer": "^0.5.1",
     "compression": "^1.7.4",
