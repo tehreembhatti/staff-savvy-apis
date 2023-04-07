@@ -1,13 +1,13 @@
 import request from 'supertest';
 import { App } from '@/app';
-import { AuthRoute } from '@routes/auth.routes';
+import { OpenRoute } from '@/routes/open.routes';
 
 afterAll(async () => {
   await new Promise<void>(resolve => setTimeout(() => resolve(), 500));
 });
 
-describe('TEST Authorization API', () => {
-  const route = new AuthRoute();
+describe('TEST Open API', () => {
+  const route = new OpenRoute();
   const app = new App([route]);
   describe('[GET] /open/ping', () => {
     it('"PONG" when server is up and running', async () => {
