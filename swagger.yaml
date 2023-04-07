@@ -43,15 +43,20 @@ paths:
         '401':
           description: Invalid email or password
 
-components:
-  schemas:
-    Error:
-      type: object
-      properties:
-        message:
-          type: string
-        code:
-          type: integer
+# definitions
+definitions:
+  users:
+    type: object
+    required:
+        - email
+        - password
+    properties:
+      email:
+        type: string
+        description: user Email
+      password:
+        type: string
+        description: user Password
 
 schemes:
  - https
