@@ -9,6 +9,12 @@ const loginSchema = z.object({
   password: z.string().min(8),
 });
 
+const commonRoute = 'auth';
+
+const routeUrl = {
+  login: `/${commonRoute}/login`,
+};
+
 export class AuthRoute implements Routes {
   public router = Router();
   public auth = new AuthController();
@@ -18,6 +24,6 @@ export class AuthRoute implements Routes {
   }
 
   private initializeRoutes() {
-    this.router.post('/login', ValidationMiddleware(loginSchema), this.auth.logIn);
+    this.router.post(routeUrl.login, ValidationMiddleware(loginSchema), this.auth.logIn);
   }
 }
