@@ -1,1 +1,18 @@
 name: Deploy Cyclic to GitHub
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Install Cyclic CLI
+        run: npm install -g @cyclic/cli
+      - name: Deploy to Cyclic
+        run: cyclic deploy
+        env:
+          CYCLIC_API_KEY: ${{ secrets.CYCLIC_API_KEY }}
